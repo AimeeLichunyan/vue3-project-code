@@ -12,16 +12,18 @@
     <script src="/dist/vue.js"></script>
 
     <script>
-       const {reactive, effect,ref, computed} = VueReactivity;
-        const state = reactive([1,2,3])
-    //    const state = reactive({name: 'qiyi',age: 11, address: '中关村,'})
-       console.log(state.a);
-       state.address = "三里屯"
-    //    effect()
-        setTimeout(() => {
-            state[10] = 'qiyiyi'
-        }, 1000);
-        console.log(state)
+       const {createApp, reactive,h} = Vue;
+       let App = {
+           setup() {
+               let state = reactive({name: 'zf',age: 11})
+               return () => {
+                   return h('div',{style:{color:'red'}},state.name + ':' + state.age)
+               }
+           }
+       }
+       createApp(App).mount("#app")
+        // vue3.0 组件时如何渲染的饿 初始化流程
+        // vue3 runtime-dom 针对浏览器的,runtime-core 核心内容
     </script>
 </body>
 

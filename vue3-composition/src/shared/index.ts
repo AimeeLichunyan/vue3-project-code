@@ -7,3 +7,5 @@ const hasOwnProperty = Object.prototype.hasOwnProperty
 export const hasOwn = (val,key) => hasOwnProperty.call(val,key)
 // 判断值是否存在变化
 export const hasChanged = (value,oldValue) =>  value !== oldValue
+export const isString = (value) => typeof value == 'string'
+export * from './shapFlags'
